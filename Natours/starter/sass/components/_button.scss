@@ -1,0 +1,72 @@
+.btn {
+  /* pseudo klasa :link */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 100px;
+    transition: all 0.2s;
+    font-size: 1rem;
+    position: relative;
+  }
+
+  /* default <a> is a text (inline). After that it's a block element, displayed after all others el*/
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
+    /* when hover btn then do sth on btn::after elm */
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+
+      /* will be invisible after 0.4s */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: white;
+    color: $color-grey-dark;
+    animation-name: moveInBottom;
+    animation-duration: 0.4s;
+
+    &::after {
+      background-color: white;
+    }
+  }
+
+  /* creating a pseudo-element for special efects*/
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+
+    /* it will automatically apply the styles up to 0% before animation starts : 
+      
+        @keyframes moveInBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(100px);
+        }*/
+    animation-fill-mode: backwards;
+  }
+}

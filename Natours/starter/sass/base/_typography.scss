@@ -1,0 +1,41 @@
+body {
+  /* fonts are inherited, so that's why it's better to declarate fonts in body selector - it's more efficient, good practice also*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+//   font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  /* if animation is a bit of shaky then use this to fix it */
+  backface-visibility: hidden;
+
+  &--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+
+    /* animation-iteration-count: 3; - 3x*/
+    /* animation-delay: 3s; */
+  }
+
+  &--sub {
+    display: block;
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 2s;
+  }
+}

@@ -1,0 +1,41 @@
+.header {
+  height: 95vh;
+
+  /* ../ - go one folder up. After ',' we can specify next background image, when we want gradien, first come the gradien*/
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.808),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
+
+  background-size: cover;
+  /* whatever the viewport size is, the top of image will always stay at the top of the container */
+
+  background-position: top;
+
+  /* now the header is an origin, position where the top and left property for .logo-box start to count if it has a absolute position */
+  position: relative;
+
+  /* specifying polygon in which the image, or elemtn, will be still visable*/
+  /* clip-path: polygon(x y, x y, x y, x y); */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+
+  &__logo {
+    height: 35px;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
