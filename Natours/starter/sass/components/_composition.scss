@@ -6,6 +6,9 @@
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
     border-radius: 2px;
     position: absolute;
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 2rem;
 
     &--p1 {
       left: 0;
@@ -21,5 +24,18 @@
       left: 20%;
       top: 10rem;
     }
+
+    &:hover {
+      // with the outline we can do more as we could with the border: 'outline offset' - the gap between img and outline
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-0.5px);
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    // hover state on etire composition -> select photo that is not hovered
+    transform: scale(0.95);
   }
 }
