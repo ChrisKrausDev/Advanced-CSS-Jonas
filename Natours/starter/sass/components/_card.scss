@@ -1,0 +1,50 @@
+.card {
+  // perspective property we need to define on the parent element!
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  // because of the position: absolute we need to specify the height of the parent:
+  height: 50rem;
+
+  &__side {
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // with position: absolute the width = width of the text, so:
+    width: 100%;
+    //  to not to se a back part of an element:
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    //   and with that, the transform: rotate will make this nice effect (perspective)
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    //   and with that, the transform: rotate will make this nice effect (perspective)
+    transform: rotateY(0deg);
+  }
+}
