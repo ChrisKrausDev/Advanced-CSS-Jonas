@@ -19,6 +19,7 @@
 
   /* specifying polygon in which the image, or elemtn, will be still visable*/
   /* clip-path: polygon(x y, x y, x y, x y); */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box {
