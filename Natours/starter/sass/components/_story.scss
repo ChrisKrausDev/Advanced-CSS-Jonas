@@ -1,0 +1,48 @@
+.story {
+  width: 75%;
+  // block elm insinde of block elm
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  // kontener jest skewed, wraz z nim wszystkie elementy, które się w nim znajdują. By wyeliminować ten problem mozna użyć dla każdego elm skew w przeciwnym kierunku, jednak to nie zadziała dla obrazka (txt tak), bo w css transform może zostać uzyte tylko raz na elemencie, so we have to use it separatly on each elm
+
+  //   & > * {
+  //     transform: skewX(12deg);
+  //   }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+
+    // by float we NEED to set ud width and height!
+    float: left;
+
+    //  only to make the text float the figure (circle)
+    //  the first position - radius of the circle (7,5 rem)
+    //  second and third position - where is the center of the circle
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // adding photo, first making a circle
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    //  to make a distance between circle and txt, but after that we need to add 3rem padding on the left side (on the parent elm)
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__img {
+    // zajmuje 100% koła (story__shape)
+    height: 100%;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+}
