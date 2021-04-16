@@ -35,14 +35,47 @@
 
     //  to make a distance between circle and txt, but after that we need to add 3rem padding on the left side (on the parent elm)
     transform: translateX(-3rem) skewX(12deg);
+    // some artefacts outside of the border of the circle so:
+    overflow: hidden;
+
+    // because &__shape is a container for &__caption
+    position: relative;
   }
 
   &__img {
     // zajmuje 100% koła (story__shape)
     height: 100%;
+    transform: translateX(-15%) scale(1.4);
+    transition: all 0.5s;
   }
 
   &__text {
     transform: skewX(12deg);
+  }
+
+  // Marry Smith caption on the img
+  &__caption {
+    // initial state, before hover
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    // when animated item shaking shortly before animation finish, use this to fix it:
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-15%) scale(1);
+    filter: blur(3px) brightness(80%);
   }
 }
