@@ -1,0 +1,62 @@
+.form {
+  &__group:not(:last-child) {
+    // we want the margin bottom, but we don't want it on the last child
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit; // inherit from the parent
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    // after click, the next elm goes down for 3px (input:focus -> 'border-bottom'), so we need to specify this same border-bottom but transparent
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+
+    &:focus {
+      // blue frame around the active form
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      // when input from the user is invalid
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      /* 
+          color of the placeholder
+      
+          <input type="email" class="form__input" id="email" placeholder="Email" required>
+          
+          */
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+  }
+
+  &__input:placeholder-shown + &__label {
+    // + adjacent sibiling selector - next sibiling
+    // ~ general sibiling selector - sibiling in any order
+    // important is the order of html markups - first should be the <input> and then <label>, only then we can use the adjacent sibiling selector
+
+    // when the placeholder is shown on the input elm, then we can style it. We do not want to style input, but the label
+    opacity: 0;
+    // if we set the opacity to 0, then the elm will be still visable on the page - but only invisible, when we set the visibility to hidden, then it will be really gone. We have to use opacity, because we can not animate the visibility.
+    visibility: hidden;
+    transform: translate(-4rem);
+  }
+}
