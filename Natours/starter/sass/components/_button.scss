@@ -1,5 +1,6 @@
 .btn {
   /* pseudo klasa :link */
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -9,6 +10,10 @@
     transition: all 0.2s;
     font-size: $default-font-size;
     position: relative;
+
+    // change for the <button> elm
+    border: none;
+    cursor: pointer;
   }
 
   /* default <a> is a text (inline). After that it's a block element, displayed after all others el*/
@@ -26,8 +31,9 @@
       opacity: 0;
     }
   }
-
+  &:focus,
   &:active {
+    outline: none;
     transform: translateY(1px);
     box-shadow: 0 5px 10px rgba($color-black, 0.2);
   }

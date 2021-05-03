@@ -289,8 +289,6 @@
                   <h2 class="heading-secondary">Start booking now</h2>
                 </div>
 
-                <!-- 18 minuta!!!! -->
-
                 <div class="form__group">
                   <input type="text" class="form__input" id="name" placeholder="Full Name" required>
                   <label for="name" class="form__label">Full Name</label>
@@ -299,6 +297,40 @@
                 <div class="form__group">
                   <input type="email" class="form__input" id="email" placeholder="Email" required>
                   <label for="email" class="form__label">Email Address</label>
+                </div>
+
+                <div class="form__group u-margin-bottom-medium">
+
+                  <!-- both will be selected, so we need to specify one attribute 'name'. When they have this same name attribute, we can select only one of them-->
+
+                  <!-- we can not style the radio buttons in CSS so we have to build it on our own - so that's why we need to create span elm inside of it -->
+
+                  <div class="form__radio-group">
+
+                    <input type="radio" class="form__radio-input" id="small" name="size">
+
+                    <label for="small" class="form__radio-label">
+                      <!-- span elm to style radio button - it'll bekome our button and we will hide the input elm. Since we've connected the label with input, even if input is hidden it will be still selected -->
+                      <span class="form__radio-button"></span>
+                      Small tour group
+                    </label>
+                  </div>
+
+                  <div class="form__radio-group">
+
+                    <input type="radio" class="form__radio-input" id="large" name="size">
+
+                    <label for="small" class="form__radio-label">
+                      <span class="form__radio-button"></span>
+                      Large tour group
+                    </label>
+                  </div>
+
+                </div>
+
+                <div class="form__group">
+                  <!-- in a form, we need a real button elm, not anchor link, because this button will alow us to submit the form, so the form understand if there is a button, then when we click, it should be submit button-->
+                  <button class="btn btn--green">Next step &rarr;</button>
                 </div>
 
               </form>
