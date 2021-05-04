@@ -16,6 +16,7 @@
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
+    transition: all 0.3s;
 
     &:focus {
       // blue frame around the active form
@@ -46,7 +47,7 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
-    transition: 0.3s;
+    transition: all 0.3s;
   }
 
   &__input:placeholder-shown + &__label {
