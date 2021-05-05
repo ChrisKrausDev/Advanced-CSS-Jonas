@@ -16,6 +16,43 @@
     <title>Natours | Exciting tours for adventurous people</title>
   </head>
   <body>
+
+    <!--
+      
+      NAVIGATION - should be on the top!!!
+      
+      to let the menu work without JS we can use checkbox trick. We need thre things:
+
+        1) checkbox, that will be hidden
+        2) label, conected to that checkbox
+        3) revealing the entire navigation on the full screen, as soon as the checkbox will >checked< -->
+
+        <!-- will be putted in layout  -->
+    <div class="navigation">
+      <!-- checkbox: id is needed to connect checkbox with the label -->
+      <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+      <!--  -->
+      <lable for="navi-toggle" class="navigation__button">MENU</lable>
+
+      <!-- background -->
+      <div class="navigation__background">&nbsp;</div>
+
+      <!-- container on the whole page, where we can center <ul> -->
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natours</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    
+
     <header class="header">
       <!-- good practice - adding imgs in containers - img is inline, div is block -->
       <div class="header__logo-box">
@@ -342,9 +379,39 @@
 
     </main>
 
+    <footer class="footer">
+
+      <div class="footer__logo-box">
+        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+      </div>
+
+      <div class="row">
+
+        <div class="col-1-of-2">
+          <div class="footer__navigation">
+            <ul class="footer__list">
+              <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+              <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+              <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
+              <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+              <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-1-of-2">
+          <p class="footer__copyright">
+            Built my <a href="#" class="footer__link">Johnas Schmedtmann</a> for his online course <a href="#" class="footer__link">Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schmedtmann. You are 100% allowed to use this webpage for bothe personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jonas Schmedtmann, is of course highly appreciate!
+          </p>
+        </div>
+
+      
+      </div>
+    </footer>
+
     <!-- 
       
-
+        
 
       <section class="grid-test">
       <div class="row">
