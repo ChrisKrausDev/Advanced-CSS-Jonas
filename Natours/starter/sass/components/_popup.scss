@@ -14,16 +14,28 @@
     background-color: $color-white;
     box-shadow: 0 2rem 4rem ($color-black, 0.2);
     border-radius: 3px;
+    display: table;
+    overflow: hidden;
   }
 
   &__left {
     width: 33.3333333%;
-    float: left;
+
+    // float: left;
+    // instead of using floats, we can simulate a table. Thanks to that, the right element will occupy the whole place. The parent elm need to be set at 'display: table'. Now we are faking the table, with real table we would need a html to make a real table.
+    display: table-cell;
   }
 
   &__right {
     width: 66.66666%;
-    float: left;
+
+    // float: left;
+    // instead of using floats, we can simulate a table. Thanks to that, the right element will occupy the whole place. The parent elm need to be set at 'display: table'
+    display: table-cell;
+
+    //  this properity we can use on table-cell, so the right cell is centered verticaly to the center of the left one.
+    vertical-align: middle;
+    padding: 3rem 5rem;
   }
 
   &__img {
@@ -32,5 +44,27 @@
   }
 
   &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    //todo column layout:
+
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+
+    column-count: 2;
+
+    // space between columns - deault: 1em (1x current elm font-size)
+    column-gap: 4rem;
+
+    // line between two columns
+    column-rule: 1px solid $color-grey-light-2;
+
+    // hyphenation
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 }
