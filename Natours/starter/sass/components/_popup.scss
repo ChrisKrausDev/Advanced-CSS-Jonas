@@ -7,6 +7,11 @@
   width: 100vw;
   z-index: 5000;
 
+  //  to make the popup unvisable. 'opacity: 0;' is not enough, it will be stil there, so that's why we use 'visibility:hidden'
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+
   &__content {
     @include absCenter;
 
@@ -16,6 +21,12 @@
     border-radius: 3px;
     display: table;
     overflow: hidden;
+
+    //  to make the popup comming infront of the user, initial state, rest by the target:
+    opacity: 0;
+    // because the transform translate is already in our mixin... we have to declare it one more time here 'transform: translate()' and then 'scale()'
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.4s 0.2s;
   }
 
   &__left {
@@ -66,5 +77,38 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+  }
+
+  //todo open popup
+
+  //  to open the popup after clicking on booking button.
+  // so we have the pseudo class called target, which applies to the element which is the target when we click on a button, or basically when the URL changes to having target in it. The markup need to have id="popup": <div class="popup" id="popup">. So when the #popup is added to the web address we can select the popup and changes it properity, so it's visable
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }

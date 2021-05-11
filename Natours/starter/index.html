@@ -196,7 +196,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -225,7 +225,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$497</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$897</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -411,13 +411,15 @@
       </div>
     </footer>
 
-    <div class="popup">
+    <div class="popup" id="popup">
       <div class="popup__content">
         <div class="popup__left">
           <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
           <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
         </div>
         <div class="popup__right">
+          <!-- after clicking on the close button, the #section-tours become a target, and we will be moved to this place on the top, the #popup is no more the target so the &:target selector for popup is no longer active, the stiles will be no more active, and the popup will be hidden - bact to the initial state -->
+          <a href="#section-tours" class="popup__close">&times;</a>
           <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
           <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
           <p class="popup__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident perferendis necessitatibus veritatis eos aut nulla officiis, dolorum iusto quisquam quasi velit accusantium vero in optio possimus enim repudiandae. Odit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem eius alias consectetur numquam recusandae magnam dolorem accusamus nesciunt facilis, mollitia ducimus itaque eum eos blanditiis obcaecati inventore magni dolor?</p>
@@ -428,8 +430,6 @@
 
     <!-- 
       
-        
-
       <section class="grid-test">
       <div class="row">
         <div class="col-1-of-2">Col 1 of 2</div>
