@@ -1,4 +1,5 @@
 .row {
+  // if the width is lower than the grid width it will occupy of it's available width
   max-width: $grid-width;
   // background-color: #eee;
   margin: 0 auto;
@@ -6,6 +7,17 @@
   &:not(:last-child) {
     // every el without :last-child!!!
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  //  the column width
+  @include respond(tab-port) {
+    max-width: 50rem;
+    // so the lines by the futter aren't on the whole width of the website
+    padding: 0 3rem;
   }
 
   @include clearfix; // with clearfix our row has right height
@@ -19,6 +31,16 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    // setting up all columns to full width, one column on side
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
 
