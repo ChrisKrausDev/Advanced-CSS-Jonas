@@ -18,6 +18,10 @@
     display: block;
     transition: all 0.3s;
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     &:focus {
       // blue frame around the active form
       outline: none;
@@ -66,6 +70,11 @@
     width: 49%;
     //  they will not create the line breaks, and will be displayed side by side
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   // to hide default radio buttons
