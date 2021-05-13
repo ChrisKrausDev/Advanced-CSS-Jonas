@@ -5,8 +5,29 @@
 }
 
 html {
+  //todo MEDIA QUERY'S: by the desktop-first: first we need to write for the larger screen then to the smaller (using max-width)
+
   //  this defines what 1rem is
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px because 10px/16px = 62.5%
+
+  // if the next break point is the same, we do not need the first one!
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+
+  @include respond(tab-land) {
+    //todo width < 900?
+    font-size: 56.25%; // 1rem - 9px so 9px/16px = 56.25%
+  }
+
+  @include respond(tab-port) {
+    //todo width < 600?
+    font-size: 50%; // if i want the 1 rem to be 8px: 8px/16px = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px so 12/16 = 75%
+  }
 }
 
 body {
