@@ -73,7 +73,7 @@
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    // because of use clip-path the 'overflow: hidden' on the parent elm doesn't work. To fix it:last-child
+    // because of use clip-path the 'overflow: hidden' on the parent elm doesn't work. To fix it: last-child
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 

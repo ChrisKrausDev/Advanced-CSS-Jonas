@@ -35,6 +35,11 @@
     // float: left;
     // instead of using floats, we can simulate a table. Thanks to that, the right element will occupy the whole place. The parent elm need to be set at 'display: table'. Now we are faking the table, with real table we would need a html to make a real table.
     display: table-cell;
+    vertical-align: middle;
+
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__right {
