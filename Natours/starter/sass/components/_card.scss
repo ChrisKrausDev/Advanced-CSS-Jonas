@@ -194,7 +194,9 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  // now the 'BOOK NOW!' button on cards will be visable on the non hover devices
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     // FUNCTIONALITY
 
     // because of the position: absolute we need to specify the height of the parent:
@@ -216,8 +218,7 @@
   }
 
   &:hover &__side--front {
-    //   and with that, the transform: rotate will make this nice effect (perspective)
-    transform: rotateY(0);
+    transform: rotateY(0deg);
   }
 
   &__details {

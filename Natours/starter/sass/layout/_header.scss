@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 85vh;
 
   /* ../ - go one folder up. After ',' we can specify next background image, when we want gradien, first come the gradien*/
   background-image: linear-gradient(
@@ -20,18 +20,22 @@
 
   /* specifying polygon in which the image, or elemtn, will be still visable*/
   /* clip-path: polygon(x y, x y, x y, x y); */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
   //  the large version of the hero image is shown when the resolution is higher than 192dpi and when the width is larger then 600px. Below 600px there is no sense
-
   // @media (cond1) and (cond2),
   // (cond3) // cond1 and 2 OR cond3 {
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-secondary-light, 0.808),
-        rgba($color-secondary-dark, 0.801)
+        rgba($color-primary-light, 0.808),
+        rgba($color-primary-dark, 0.801)
       ),
       url(../img/hero.jpg);
   }
