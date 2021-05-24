@@ -72,23 +72,60 @@
 ///////////////////////////////////
 // USER NAVIGATION
 .user-nav {
-  background-color: greenyellow;
+  display: flex;
+  align-items: center;
+
+  // now all of the items have this same high:
+  align-self: stretch;
+
+  //  hover effect on nav boxes - all direct children
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+
+    // after hover they need to have 100% height:
+    height: 100%;
+
+    //  third flexbox level - so that all icons are verticaly centered
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
   &__icon-box {
+    position: relative;
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+
+    // color of the icon
+    fill: var(--color-grey-dark-2);
   }
 
   &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-  }
-
-  &__user-name {
+    margin-right: 1rem;
   }
 }
