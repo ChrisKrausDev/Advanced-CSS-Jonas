@@ -28,11 +28,17 @@
 
   //  to give a width to the navigation:
   flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
+
+  // test
   background-color: orangered;
+  height: 80rem;
 
   // elm should grow, take the whole free space
   flex: 1;
