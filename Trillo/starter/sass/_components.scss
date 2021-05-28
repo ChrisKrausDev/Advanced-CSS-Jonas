@@ -17,6 +17,14 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    // moving search bar to the down, first we need to give it last order number, so it's on the right side of the bar
+    order: 1;
+    // and then we need to move it to the new row with 'flex-wrap: wrap' on .container (layout.scss) and then flex-basis on 100%:
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     // input elm doesn't inherit this properties from global document
     font-family: inherit;
@@ -207,6 +215,12 @@
       justify-content: center;
       padding: 2rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      // centering the nav links
+      flex-direction: column;
+      padding: 1rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -215,6 +229,13 @@
     margin-right: 2rem;
     // color of current elm or parent elm
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -260,6 +281,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -303,15 +329,27 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
     &-avarage {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -3px;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
 
     &-count {
       font-size: 0.8rem;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 0.5rem;
+      }
     }
   }
 }
