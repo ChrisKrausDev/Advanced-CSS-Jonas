@@ -19,6 +19,8 @@ Grey dark 3: #999
 //  To create a variable with global scope, declare it inside the :root selector. The :root selector matches the document's root element.
 
 :root {
+  // css custom properties
+
   --color-primary: #eb2f64;
   --color-primary-light: #ff3366;
   --color-primary-dark: #ba265d;
@@ -38,6 +40,14 @@ Grey dark 3: #999
   --line: 1px solid var(--color-grey-light-2);
 }
 
+// ccs custom properties doesn't work with media queries so we have to use sass variables:
+
+// breakpoints
+
+$bp-largest: 75em; // 1200px/16px = 75em
+$bp-large: 68.5em; // 1100px
+$bp-medium: 56.25em; // 900px
+
 * {
   margin: 0;
   padding: 0;
@@ -52,6 +62,10 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; //now 1rem = 10px because: 10px/16px [16px is default browser font-size]
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {

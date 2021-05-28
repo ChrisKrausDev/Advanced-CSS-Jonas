@@ -5,6 +5,15 @@
   box-shadow: var(--shadow-dark);
 
   min-height: 50rem;
+
+  // mq for out container
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+
+    // between largest and large mq, when the global font-size is seted at 50% width will be: 120rem x 8px (16/2) makes 960, so we have unwonted margin on the right. We need to set max width of container:
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .header {
@@ -21,6 +30,10 @@
 // our flex container
 .content {
   display: flex;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -52,6 +65,10 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+  }
 }
 
 .description {
@@ -60,6 +77,11 @@
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2;
+    margin-right: 3rem;
+  }
 }
 
 .user-reviews {
